@@ -11,7 +11,7 @@ tools {
     label 'tomcatserver'
   }
     steps {
-      bat 'mvn clean package -DskipTests=true'
+      sh 'mvn clean package -DskipTests=true'
     }
   }
 
