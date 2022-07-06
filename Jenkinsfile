@@ -12,8 +12,12 @@ tools {
   }
 
   stage('deploy') {
+      agent {
+    label 'tomcatserver'
+  }
+    
     steps {
-                      bat 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Springboot_pipeline\\target\\*.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.0\\webapps\\"'
+                      sh 'cp target/*.war /home/ec2-user/apache-tomcat-9.0.63/webapps/'
     }
   }
 } 
