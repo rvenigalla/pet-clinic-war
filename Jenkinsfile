@@ -5,10 +5,11 @@ tools {
   maven 'maven'
 }
  stages {
-         agent {
+
+  stage('build') {
+             agent {
     label 'tomcatserver'
   }
-  stage('build') {
     steps {
       bat 'mvn clean package -DskipTests=true'
     }
