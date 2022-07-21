@@ -7,21 +7,15 @@ tools {
  stages {
 
   stage('build') {
-             agent {
-    label 'tomcatserver'
-  }
     steps {
       sh 'mvn clean package -DskipTests=true'
     }
   }
 
   stage('deploy') {
-      agent {
-    label 'tomcatserver'
-  }
     
     steps {
-                      sh 'cp target/*.war /home/ec2-user/apache-tomcat-9.0.63/webapps/'
+       sh 'cp target/*.war /home/ec2-user/apache-tomcat-9.0.63/webapps/'
     }
   }
 } 
